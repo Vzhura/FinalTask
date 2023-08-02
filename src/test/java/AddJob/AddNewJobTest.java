@@ -49,7 +49,7 @@ public class AddNewJobTest {
 
     public void getAddJobTest() {
         // Заповнення полів форми додавання об'яви
-        String Title = "testJob";
+        String Title = "Random title";
         String Description = "testDescription";
         String Price = "100Hryvnas";
         AddJobPage.getAddJob(Title, Description, Price);
