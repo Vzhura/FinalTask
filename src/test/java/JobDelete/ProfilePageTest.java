@@ -36,45 +36,46 @@ public class ProfilePageTest {
         // Логін з тестовими даними
         loginPage.login("testUser", "testpassword");
 
-    @Test
-    public void testViewMyJobs() {
-        HomePage homePage = new HomePage(driver);
-        homePage.clickJob();
+        @Test
+        public void testViewMyJobs() {
+            HomePage homePage = new HomePage(driver);
+            homePage.clickJob();
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.viewMyJobs();
+            ProfilePage profilePage = new ProfilePage(driver);
+            profilePage.viewMyJobs();
 
-        // Перевірка, переходу на сторінку зі списком своїх оголошень
-        Assert.assertTrue(true, "Not on My Jobs page.");
-    }
+            // Перевірка, переходу на сторінку зі списком оголошень
+            Assert.assertTrue(true, "Not on My Jobs page.");
+        }
 
-    @Test(dependsOnMethods = "testViewMyJobs")
-    public void GetCommentCount() {
-        // Назва оголошення, для якого ви необхідно перевірити кількість коментарів
-        String jobTitle = "Test Job";
+        @Test(dependsOnMethods = "ViewMyJobs")
+        public void GetCommentCount () {
+            // Назва оголошення, для якого необхідно перевірити кількість коментарів
+            String jobTitle = "Test Job";
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        int commentCount = profilePage.getCommentCount(jobTitle);
+            ProfilePage profilePage = new ProfilePage(driver);
+            int commentCount = profilePage.getCommentCount(jobTitle);
 
-        // Перевірка, що кількість коментарів відображається коректно
-        Assert.assertEquals(commentCount, 3, "Incorrect comment count.");
-    }
+            // Перевірка, що кількість коментарів відображається коректно
+            Assert.assertEquals(commentCount, 3, "Incorrect comment count.");
+        }
 
-    @Test(dependsOnMethods = "testGetCommentCount")
-    public void DeleteJob() {
-        // Назва оголошення яке треба видалити
-        String jobTitleToDelete = "Test Job";
+        @Test(dependsOnMethods = "GetCommentCount")
+        public void DeleteJob() {
+            // Назва оголошення яке треба видалити
+            String jobTitleToDelete = "Test Job";
 
-        ProfilePage profilePage = new ProfilePage(driver);
-        profilePage.deleteJob(jobTitleToDelete);
+            ProfilePage profilePage = new ProfilePage(driver);
+            profilePage.deleteJob(jobTitleToDelete);
 
-        // Перевірка, видаленя оголошення
-        Assert.assertTrue(true, "Job was not deleted successfully.");
-    }
+            // Перевірка, видаленя оголошення
+            Assert.assertTrue(true, "Job was not deleted successfully.");
+        }
 
-    @AfterClass
-    public void tearDown() {
-        driver.quit();
+        @AfterClass
+        public void tearDown() {
+            driver.quit();
+        }
     }
 }
 

@@ -19,7 +19,6 @@ public class CustomExtentReportListener extends ExtentITestListenerClassAdapter 
         System.setProperty("extent.reporter.html.start", "true");
         System.setProperty("extent.reporter.html.out", "target/extentReport/ExtentHtml.html");
     }
-
     @Override
     public synchronized void onTestFailure(ITestResult result) {
         super.onTestFailure(result);
@@ -33,7 +32,6 @@ public class CustomExtentReportListener extends ExtentITestListenerClassAdapter 
             e.printStackTrace();
         }
     }
-
     @Override
     public synchronized void onTestSkipped(ITestResult result) {
         super.onTestSkipped(result);

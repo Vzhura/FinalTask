@@ -33,7 +33,6 @@ public class LeaveCommentTest {
         // Логін з тестовими даними
         loginPage.login("testUser", "testpassword");
     }
-
     @Test
     public void testLeaveComment() {
         HomePage homePage = new HomePage(driver);
@@ -46,7 +45,6 @@ public class LeaveCommentTest {
         // Перевірка, що коментар було успішно залишено
         Assert.assertTrue(true, "Comment was not left successfully.");
     }
-
     @AfterClass
     public void tearDown() {
         driver.quit();

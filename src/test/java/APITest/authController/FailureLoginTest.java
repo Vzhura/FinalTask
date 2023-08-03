@@ -3,7 +3,6 @@ package APITest.authController;
 import okhttp3.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 
 public class FailureLoginTest {
@@ -13,7 +12,7 @@ public class FailureLoginTest {
         OkHttpClient client = new OkHttpClient();
 
         // URL ендпоінту для логіна
-        String url = "https://freelance.lsrv.in.ua/api/auth/login";
+        String url = "https://freelance.lsrv.in.ua/api/auth/signin";
 
         // JSON-запит для невдалого логіну
         String jsonRequest = "{\"username\": \"wrong_username\", \"password\": \"wrong_password\"}";
@@ -26,7 +25,6 @@ public class FailureLoginTest {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            // Перевірка, що логін був невдалим (статус код 401)
             Assert.assertEquals(response.code(), 401);
         }
     }

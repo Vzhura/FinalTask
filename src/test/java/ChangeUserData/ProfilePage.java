@@ -6,27 +6,21 @@ import org.openqa.selenium.WebElement;
 
 public class ProfilePage {
     private WebDriver driver;
-
     public ProfilePage(WebDriver driver) {
         this.driver = driver;
     }
-
     public WebElement getProfileTab() {
-        return driver.findElement(By.xpath("/html/body/app-root/div/app-navigation/mat-toolbar/button/span[1]/mat-icon"));
+        return driver.findElement(By.xpath("//html/body/app-root/div/app-navigation/mat-toolbar/button"));
     }
-
     public WebElement getEditInfoButton() {
-        return driver.findElement(By.xpath("//button[contains(text(), 'Edit Info')]"));
+        return driver.findElement(By.xpath("//html/body/app-root/div/app-profile/div/div[1]/button[1]"));
     }
-
     public WebElement CreateJobButton() {
-        return driver.findElement(By.xpath("//button[contains(text(), 'Create job')]"));
+        return driver.findElement(By.xpath("//html/body/app-root/div/app-profile/div/div[2]/app-my-jobs/div/div/button"));
     }
-
     public WebElement getCloseProfileButton() {
-        return driver.findElement(By.xpath("//button[contains(text(), 'Close profile')]"));
+        return driver.findElement(By.xpath("//html/body/app-root/div/app-profile/div/div[1]/button[2]"));
     }
-
     public WebElement getNewName() {
         return driver.findElement(By.id("mat-input-15"));
     }
@@ -40,7 +34,7 @@ public class ProfilePage {
     }
 
     public WebElement UpdateButton() {
-        return driver.findElement(By.xpath("//button[contains(text(), ' Update')]"));
+        return driver.findElement(By.xpath("//html/body/div[2]/div[2]/div/mat-dialog-container/app-edit-profile/div/form/div/button[2]"));
     }
 
     public void editInfo(String NewName, String NewLastName) {
@@ -49,7 +43,6 @@ public class ProfilePage {
         getNewLastName().sendKeys(NewLastName);
         UpdateButton().click();
     }
-
     public String getNewNameValue() {
         return getNewName().getAttribute("value");
     }
@@ -62,12 +55,10 @@ public class ProfilePage {
         WebElement myJobsLink = driver.findElement(By.linkText("My Jobs"));
         myJobsLink.click();
     }
-
     public int getCommentCount(String jobTitle) {
         WebElement commentCountElement = driver.findElement(By.xpath("//a[contains(text(), '" + jobTitle + "')]/../span"));
         return Integer.parseInt(commentCountElement.getText());
     }
-
     public void deleteJob(String jobTitle) {
         WebElement deleteButton = driver.findElement(By.xpath("//a[contains(text(), '" + jobTitle + "')]/../a[@title='Delete']"));
         deleteButton.click();

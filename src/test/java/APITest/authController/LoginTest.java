@@ -3,7 +3,6 @@ package APITest.authController;
 import okhttp3.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 
 public class LoginTest {
@@ -26,8 +25,6 @@ public class LoginTest {
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-
-            // Перевірка, що логін був успішним (статус код 200)
             Assert.assertEquals(response.code(), 200);
         }
     }

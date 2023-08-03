@@ -2,20 +2,17 @@ package APITest.userController;
 
 import okhttp3.*;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
-
 import static org.testng.Assert.assertEquals;
 
 public class UserControllerApiTest {
 
     private final String baseUrl = "https://freelance.lsrv.in.ua/api";
-
     @Test
     public void testGetUserById() throws IOException {
         OkHttpClient client = new OkHttpClient();
 
-        int userId = 1; // Замініть на ID користувача, якого ви хочете отримати
+        int userId = 1;
 
         Request request = new Request.Builder()
                 .url(baseUrl + "/user/" + userId)

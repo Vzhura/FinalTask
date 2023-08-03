@@ -23,7 +23,7 @@ public class RegistrationPage {
     public WebElement getConfirmPasswordInput() { return driver.findElement(By.id("mat-input-4"));}
 
     public WebElement getRegisterButton() {
-        return driver.findElement(By.xpath("//button[contains(text(), 'Register')]"));
+        return driver.findElement(By.xpath("//html/body/app-root/div/app-register/div/form/div/div/div[6]/button/"));
     }
 
     public void register(String username, String name, String lastname, String password) {
