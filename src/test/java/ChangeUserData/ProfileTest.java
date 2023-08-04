@@ -37,7 +37,6 @@ public class ProfileTest {
         // Логін з тестовими даними
         loginPage.login("testUser", "testpassword");
     }
-
     @Test
     public void editProfileTest() {
         // Перехід на сторінку Profile
@@ -52,7 +51,6 @@ public class ProfileTest {
         Assert.assertEquals(profilePage.getNewNameValue(), newName, "Name update failed!");
         Assert.assertEquals(profilePage.getNewLastNameValue(), NewLastName, "NewLastName update failed!");
     }
-
     @AfterMethod
     public void tearDown() {
         // Закриваємо браузер після завершення тесту

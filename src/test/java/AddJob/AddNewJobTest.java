@@ -1,6 +1,5 @@
 package AddJob;
 
-import ChangeUserData.ProfilePage;
 import Login.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +37,6 @@ public class AddNewJobTest {
         // Логін з тестовими даними
         loginPage.login("testUser", "testpassword");
     }
-
     @Test
     public void loginTest() {
         // Заповнення полів логіну
@@ -46,10 +44,9 @@ public class AddNewJobTest {
         String password = "testpassword";
         loginPage.login(login, password);
     }
-
     public void getAddJobTest() {
         // Заповнення полів форми додавання об'яви
-        String Title = "testJob";
+        String Title = "Random title";
         String Description = "testDescription";
         String Price = "100Hryvnas";
         AddJobPage.getAddJob(Title, Description, Price);
@@ -58,7 +55,6 @@ public class AddNewJobTest {
         Assert.assertEquals(AddJobPage.getDescription(), Description, "Name update failed!");
 
     }
-
     @AfterMethod
     public void tearDown() {
         // Закриваємо браузер після завершення тесту
